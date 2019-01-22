@@ -1,0 +1,51 @@
+<form (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="example-container">
+    <div>
+      <mat-form-field>
+        <input id="name" name="mail" matInput placeholder="Enter your email" [formControl]="email" required ngmodel>
+        <mat-error *ngIf="email.invalid">{{getErrorMessage()}}</mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <input name="password" matInput placeholder="Enter your password" [formControl]="password" [type]="hide ? 'password' : 'text'" required ngmodel>
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="example-full-width">
+        <input [formControl]="name" name="name" matInput placeholder="Name" required ngmodel>
+      </mat-form-field>
+      <mat-form-field class="example-full-width">
+        <input [formControl]="surname" name="surname" matInput placeholder="Surname" required ngmodel>
+      </mat-form-field>
+      <mat-form-field>
+          <input [formControl]="date" name="date" matInput [matDatepicker]="picker" placeholder="Birth date" required ngmodel>
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field class="example-full-width">
+          <input [formControl]="address" name="address" matInput placeholder="Address" required ngmodel>
+          </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input [formControl]="city" name="city" matInput placeholder="City" required ngmodel>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input [formControl]="state" name="state" matInput placeholder="State" required ngmodel>
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+              <input [formControl]="postCode" name="postCode" matInput #postalCode maxlength="5" placeholder="Postal Code" required ngmodel>
+            </mat-form-field>
+            <mat-form-field>
+                Profile
+                <mat-select [(value)]="profile">
+                  <mat-option name="vendeur" value="vendeur" ngmodel>Vendeur</mat-option>
+                  <mat-option name="acheteur" value="acheteur" ngmodel>Acheteur</mat-option>
+                </mat-select>
+              </mat-form-field>
+              <p>You selected: {{profile}}</p>
+    </div>
+      <button type="submit" value="Envoyer" mat-raised-button color="primary">Inscription</button>
+      
+  </div>
+</form>

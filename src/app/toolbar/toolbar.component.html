@@ -1,0 +1,32 @@
+<mat-toolbar color="primary">
+  <div style="margin-right:5px;">
+      <button mat-button [routerLink]="['/']">
+        <mat-icon>
+                home
+        </mat-icon>
+      </button>
+  </div> 
+  <div style="width: 100%">
+      <button mat-raised-button color="basic" [routerLink]="['inscription']">
+          Inscription
+      </button>
+      <button mat-raised-button color="basic" [routerLink]="['connexion']">
+            Connexion
+      </button>
+      <div style="float: right;"> 
+        <a style="color:inherit;text-decoration: none;" [routerLink]="['panier']">
+            <mat-icon>
+                shopping_cart
+            </mat-icon>
+        </a>
+        <a style="color:inherit;text-decoration: none;" [routerLink]="['profile']">
+            <mat-icon>
+                account_circle
+            </mat-icon>
+        </a>
+        <button mat-raised-button color="basic" [routerLink]="['testPay']">
+                Test Pay
+          </button>
+      </div>
+  </div>
+</mat-toolbar>
